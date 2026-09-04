@@ -108,7 +108,7 @@ export default function FAQSection() {
                 Embark on a journey with Process today!
             </span>
             <Link
-                href="/contact"
+                href="/contact-us"
                 className=" inline-flex items-center gap-2 rounded-md bg-paper px-4 py-3 text-xs font-medium text-burgundy transition-colors"
             >
                 Get Started

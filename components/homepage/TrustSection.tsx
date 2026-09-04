@@ -44,7 +44,7 @@ export default function TrustSection() {
         {/* Headline with an inline icon, echoing the crown in the logo */}
         <h2 className="mt-5 text-3xl leading-snug text-neutral-900 sm:text-4xl lg:text-[2.5rem]">
           Behind every great business is clear, confident{" "}
-          <span className="inline-flex translate-y-1 items-center justify-center rounded-full bg-burgundy p-2 align-middle text-blush">
+          <span className="inline-flex lg:translate-y-1 items-center justify-center rounded-full bg-burgundy p-2 align-middle text-blush">
             <Crown size={18} />
           </span>{" "}
           financials.

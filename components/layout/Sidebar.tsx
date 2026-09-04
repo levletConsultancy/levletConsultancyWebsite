@@ -51,7 +51,7 @@ const linkVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.35,
+      duration: .4,
       ease: "easeOut",
     },
   },
@@ -82,23 +82,10 @@ export default function Sidebar({
       initial={false}
       animate={isOpen ? "open" : "closed"}
       variants={panelVariants}
-      className="fixed top-[72px] right-0 z-40 h-[calc(100vh-72px)] w-full bg-white text-white shadow-2xl md:hidden"
+      className="fixed top-[72px] right-0 z-40 h-[calc(100vh-72px)] w-full bg-white text-white shadow-2xl md:hidden duration-150"
     >
-      <div className="flex h-full flex-col">
-        {/* Logo */}
-        {/* <div className="px-6 py-6">
-          <Link href="/" onClick={onClose}>
-            <Image
-              src="/images/Levlet-Logo3.PNG"
-              alt="Levlet Logo"
-              width={120}
-              height={120}
-              className="object-contain"
-              priority
-            />
-          </Link>
-        </div> */}
-
+      <div className="flex min-h-[20vh] flex-col">
+ 
         {/* Navigation */}
         <motion.nav
           variants={navVariants}
