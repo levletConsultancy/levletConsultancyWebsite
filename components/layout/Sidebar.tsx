@@ -1,11 +1,9 @@
 "use client";
 
-import { X } from "lucide-react";
 import { useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
 import PrimaryBtn from "../common/PrimaryBtn";
-import Link from "next/link";
-import Image from "next/image";
+import {ConsultaionBtn} from "./Navbar";
 
 export interface NavLink {
   label: string;
@@ -18,32 +16,44 @@ interface MobileSidebarProps {
   links: NavLink[];
 }
 
-const backdropVariants: Variants = {
-  closed: { opacity: 0 },
-  open: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
-};
-
 const panelVariants: Variants = {
-  closed: { x: "-100%" },
+  closed: {
+    y: "-100%",
+    opacity: 0,
+  },
   open: {
-    x: 0,
-    transition: { type: "spring", stiffness: 320, damping: 32 },
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 320,
+      damping: 32,
+    },
   },
 };
 
 const navVariants: Variants = {
   closed: {},
   open: {
-    transition: { staggerChildren: 0.06, delayChildren: 0.2 },
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.15,
+    },
   },
 };
 
 const linkVariants: Variants = {
-  closed: { opacity: 0, x: 24 },
+  closed: {
+    opacity: 0,
+    y: 15,
+  },
   open: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.35, ease: "easeOut" },
+    y: 0,
+    transition: {
+      duration: 0.35,
+      ease: "easeOut",
+    },
   },
 };
 
@@ -58,61 +68,41 @@ export default function Sidebar({
     } else {
       document.body.style.overflow = "";
     }
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
   return (
-    <>
-      {/* Backdrop */}
-      <motion.div
-        onClick={onClose}
-        aria-hidden="true"
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        variants={backdropVariants}
-        className={`fixed inset-0 z-40 bg-white backdrop-blur-sm md:hidden ${
-          isOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
-      />
+    <motion.aside
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      variants={panelVariants}
+      className="fixed top-[72px] right-0 z-40 h-[calc(100vh-72px)] w-full bg-white text-white shadow-2xl md:hidden"
+    >
+      <div className="flex h-full flex-col">
+        {/* Logo */}
+        {/* <div className="px-6 py-6">
+          <Link href="/" onClick={onClose}>
+            <Image
+              src="/images/Levlet-Logo3.PNG"
+              alt="Levlet Logo"
+              width={120}
+              height={120}
+              className="object-contain"
+              priority
+            />
+          </Link>
+        </div> */}
 
-      {/* Sliding panel */}
-      <motion.aside
-        role="dialog"
-        aria-modal="true"
-        aria-label="Mobile navigation"
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        variants={panelVariants}
-        className="fixed top-0 right-0 z-50 h-full w-full bg-white text-white shadow-2xl md:hidden backdrop-blur-xl"
-      >
-        <div className="flex items-center justify-between px-6 py-3 border-b border-wh0">
-          <Link
-                href="/"
-                className="flex items-center gap-2 font-semibold transition-colors duration-300 mr-10 text-white"
-              >
-                <Image
-                  src="/images/Levlet-Logo3.PNG"
-                  alt="Levlet Logo"
-                  width={120}
-                  height={120}
-                  className=" object-contain"
-                  priority
-                />
-              </Link>
-          <button
-            onClick={onClose}
-            aria-label="Close menu"
-            className="rounded-md p-2 border  text-burgundy transition-colors border-burgundy/20 "
-          >
-            <X size={22} />
-          </button>
-        </div>
-
+        {/* Navigation */}
         <motion.nav
           variants={navVariants}
-          className="flex flex-col gap-1 px-4 py-6"
+          className="flex flex-col gap-1 px-4 py-4"
         >
           {links.map((link) => (
             <motion.a
@@ -120,25 +110,21 @@ export default function Sidebar({
               href={link.href}
               onClick={onClose}
               variants={linkVariants}
-              className="rounded-lg px-3 py-3 text-base font-medium text-slate-950 transition-colors"
+              className="rounded-lg px-3 py-4 text-lg font-medium text-slate-950 transition-colors hover:bg-burgundy/5 hover:text-burgundy"
             >
               {link.label}
             </motion.a>
           ))}
         </motion.nav>
 
+        {/* Bottom CTA */}
         <motion.div
           variants={linkVariants}
-          className="mt-auto px-6 py-6 border-t border-white/10"
+          className="mt-auto border-t border-slate-200 px-6 py-6"
         >
-          <PrimaryBtn
-            href="/contact"
-            className="bg-burgundy hover:bg-burgundy/90"
-          >
-            Get in Touch
-          </PrimaryBtn>
+          <ConsultaionBtn text="Book a Free Consultation" className=" inline-flex bg-burgundy text-paper" />
         </motion.div>
-      </motion.aside>
-    </>
+      </div>
+    </motion.aside>
   );
 }
