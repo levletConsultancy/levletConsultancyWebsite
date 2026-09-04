@@ -27,7 +27,8 @@ export default function Footer() {
   const full_year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-burgundy to-burgundy-dark text-white">
+    <section className="px-4 pb-10 pt-16 sm:px-6">
+    <footer className="bg-gradient-to-b from-burgundy to-burgundy-dark text-white rounded-3xl">
       <div className="mx-auto max-w-6xl px-4 pb-10 pt-16 sm:px-6">
         <div className="flex flex-col gap-12 sm:flex-row sm:justify-between w-full">
           {/* Brand column */}
@@ -59,7 +60,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 hover:bg-white/20"
+                  className="flex h-9 w-9 items-center justify-center rounded-md bg-white/10 text-white transition-colors duration-200 hover:bg-white/20"
                 >
                   <Icon size={16} />
                 </a>
@@ -118,7 +119,7 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-xs text-white/90 transition-colors duration-200 hover:text-white"
+                  className="text-xs text-white/40 transition-colors duration-200 hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -128,5 +129,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </section>
   );
 }

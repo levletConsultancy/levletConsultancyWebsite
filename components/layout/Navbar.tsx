@@ -4,12 +4,27 @@ import { useEffect, useState } from "react";
 import Sidebar, { type NavLink } from "./Sidebar";
 import Link from "next/link";
 import Image from "next/image";
-import { TbMenu } from "react-icons/tb";
-import { ArrowUpRight } from "lucide-react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { TbMenu3 } from "react-icons/tb";
+import { X } from "lucide-react";
 
 
+interface ConsultaionBtnProps {
+  text: string;
+  className?: string;
+}
+
+export function ConsultaionBtn({ text, className }: ConsultaionBtnProps) {
+  return (
+    <Link
+        href="/contact-us"
+        className={`hidden lg:inline-flex items-center gap-2 rounded-sm bg-blush px-6 py-3 text-sm font-medium text-burgundy transition-color ${className}`}
+      >
+        {text} 
+        <FaPhoneAlt size={16} />
+      </Link>
+  );
+} 
 
 
 
@@ -17,7 +32,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About us", href: "/#about" },
   { label: "Services", href: "/#services" },
-  { label: "Why Us", href: "/#industries" },
+  { label: "Why Us", href: "/#why-us" },
 
 
 ];
@@ -40,13 +55,9 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="flex justify-center bg-burgundy">
+      <header className="relative z-50 flex justify-center bg-burgundy">
         <nav
-          className={`flex w-full items-center justify-between rounded-md  px-5 py-3 transition-all duration-300 sm:px-16 bg-burgundy shadow-md ${
-            isScrolled
-              ? "border-slate-200 bg-burgundy"
-              : "border-slate-200 bg-burgundy"
-          }`}
+          className={`flex h-[72px] w-full items-center justify-between rounded-md px-5 py-3 transition-all duration-300 sm:px-16 bg-burgundy shadow-md`}
         >
           <div className="flex  items-center gap-10">
              {/* Logo */}
@@ -78,11 +89,11 @@ export default function Navbar() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={` text-sm transition-colors duration-200 ${
-                        isScrolled ? "hover:text-blush/80" : "hover:blush/80"
-                      }`}
+                      className="group relative inline-block text-sm text-blush"
                     >
                       {link.label}
+
+                      <span className="absolute -bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-blush transition-all duration-300 ease-out group-hover:w-[80%]" />
                     </Link>
                   </li>
                 ))}
@@ -91,25 +102,16 @@ export default function Navbar() {
           </div>
             
           {/* Desktop CTA */}
-          <Link
-            href="/contact"
-            className="hidden lg:inline-flex items-center gap-2 rounded-sm bg-blush px-6 py-3 text-sm font-medium text-burgundy transition-color"
-          >
-            Free Consultation
-            <FaPhoneAlt size={16} />
-          </Link>
+          <ConsultaionBtn text="Free Consultation" />
 
           {/* Mobile hamburger */}
           <button
-            onClick={() => setIsSidebarOpen(true)}
-            aria-label="Open menu"
-            className={`inline-flex items-center justify-center rounded-md p-2 transition-colors duration-300 md:hidden border cursor-pointer border-white/10 bg-gradient-to-br from-burgundy to-burgundy/60 ${
-              isScrolled
-                ? "text-blush"
-                : "text-blush"
-            }`}
+            type="button"
+            onClick={() => setIsSidebarOpen((prev) => !prev)}
+            aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+            className="relative z-[60] inline-flex items-center justify-center rounded-md border border-white/10 bg-gradient-to-br from-burgundy to-burgundy/60 p-2 text-blush transition-all duration-300 md:hidden cursor-pointer"
           >
-            <TbMenu3 size={22} />
+            {isSidebarOpen ? <X size={22} /> : <TbMenu3 size={22} />}
           </button>
         </nav>
       </header>
