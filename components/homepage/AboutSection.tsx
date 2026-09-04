@@ -14,7 +14,7 @@ export default function AboutSection() {
     <section className="bg-white px-5 py-20 sm:px-8" id="about">
       <div className="mx-auto grid max-w-5xl gap-12 sm:grid-cols-2 sm:items-center">
         {/* Portrait image */}
-        <div className="relative aspect-square w-full overflow-hidden rounded-2xl sm:max-w-none">
+        <div className="relative border-3 border-paper aspect-square w-full overflow-hidden rounded-2xl sm:max-w-none">
           <Image
             src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=1000&q=80"
             alt="Levlet Consultancy advisor"

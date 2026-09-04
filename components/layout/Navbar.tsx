@@ -57,7 +57,7 @@ export default function Navbar() {
     <>
       <header className="relative z-50 flex justify-center bg-burgundy">
         <nav
-          className={`flex h-[72px] w-full items-center justify-between rounded-md px-5 py-3 transition-all duration-300 sm:px-16 bg-burgundy shadow-md`}
+          className={`flex h-[72px] w-full items-center justify-between rounded-md px-5 py-2 md:py-3 transition-all duration-300 sm:px-16 bg-burgundy shadow-md`}
         >
           <div className="flex  items-center gap-10">
              {/* Logo */}

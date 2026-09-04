@@ -40,13 +40,13 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-paper px-5 py-20 sm:px-8">
+    <section className="bg-paper px-5 py-20 sm:px-8" id="why-us">
       
       <MainHeading title=" What makes us your trusted partner" subtitle="Why Choose Levlet" />
 
       <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-[380px_1fr]">
         {/* Image with overlay caption */}
-        <div className="relative h-[440px] overflow-hidden rounded-2xl">
+        <div className="relative h-[440px] overflow-hidden rounded-2xl border-3 border-white">
           <Image
             src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80"
             alt="Levlet advisor in a client consultation"

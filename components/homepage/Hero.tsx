@@ -11,7 +11,7 @@ const SLIDE_DURATION_MS = 6000;
 
 export const heroBackgrounds = [
   {
-    src: "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?auto=format&fit=crop&w=1920&q=75",
+    src: "https://images.unsplash.com/photo-1507537362848-9c7e70b7b5c1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "City building at night",
   },
   {
@@ -96,17 +96,17 @@ export default function Hero() {
 
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
-            href="/contact"
+            href="/contact-us"
             className="inline-flex items-center gap-2 rounded-sm bg-[#FDF9F7] px-6 py-3 text-sm font-medium text-[#1C1815] transition-colors hover:bg-[#F6DCDD]"
           >
             Book a Consultation
             <ArrowUpRight size={16} />
           </Link>
           <Link
-            href="/contact"
+            href="/#services"
             className="inline-flex items-center gap-2 rounded-sm border border-[#FDF9F7]/40 px-6 py-3 text-sm font-medium text-[#FDF9F7] transition-colors hover:bg-[#FDF9F7]/10"
           >
-            Contact Us
+            Explore Services
           </Link>
         </div>
 
