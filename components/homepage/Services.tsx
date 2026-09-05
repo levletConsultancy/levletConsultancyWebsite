@@ -8,7 +8,7 @@ const services = [
     title: "Financial Services",
     description:
       "Accounting, bookkeeping, tax, and financial advisory to keep your business compliant and healthy.",
-    href: "/services/financial",
+    href: "/services/financial-services",
   },
   {
     icon: TrendingUp,
@@ -22,7 +22,7 @@ const services = [
     title: "eCitizen Services",
     description:
       "Fast, reliable help with NTSA, KRA PINs, business registration, and more.",
-    href: "/services/ecitizen",
+    href: "/services/eCitizen-services",
   },
 ];
 
@@ -37,8 +37,7 @@ export default function Services() {
           <Link
             key={href}
             href={href}
-            /* Mobile: :active gives instant tap feedback (no hover on
-               touch). Desktop: sm:hover: takes back over. */
+           
             className="group flex min-h-[380px] flex-col justify-between rounded-lg bg-paper p-8 transition-colors duration-300 active:bg-burgundy sm:hover:bg-burgundy"
           >
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-burgundy text-white transition-colors duration-300 group-active:bg-white group-active:text-burgundy sm:group-hover:bg-white sm:group-hover:text-burgundy">

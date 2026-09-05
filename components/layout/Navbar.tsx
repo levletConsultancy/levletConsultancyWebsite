@@ -12,13 +12,15 @@ import { X } from "lucide-react";
 interface ConsultaionBtnProps {
   text: string;
   className?: string;
+  onClick?: () => void;
 }
 
-export function ConsultaionBtn({ text, className }: ConsultaionBtnProps) {
+export function ConsultaionBtn({ text, className, onClick }: ConsultaionBtnProps) {
   return (
     <Link
         href="/contact-us"
         className={`hidden lg:inline-flex items-center gap-2 rounded-sm bg-blush px-6 py-3 text-sm font-medium text-burgundy transition-color ${className}`}
+        onClick={onClick}
       >
         {text} 
         <FaPhoneAlt size={16} />
@@ -32,6 +34,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About us", href: "/#about" },
   { label: "Services", href: "/#services" },
+  { label: "How We Work", href: "/#how-we-work" },
   { label: "Why Us", href: "/#why-us" },
 
 

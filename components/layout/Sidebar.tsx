@@ -109,7 +109,7 @@ export default function Sidebar({
           variants={linkVariants}
           className="mt-auto border-t border-slate-200 px-6 py-6"
         >
-          <ConsultaionBtn text="Book a Free Consultation" className=" inline-flex bg-burgundy text-paper" />
+          <ConsultaionBtn text="Book a Free Consultation" className=" inline-flex bg-burgundy text-paper" onClick={onClose} />
         </motion.div>
       </div>
     </motion.aside>
