@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="flex-2">
             <Link
               href="/"
-              className="flex items-center gap-2 font-semibold transition-colors duration-300"
+              className="flex items-center gap-2 font-semibold transition-colors duration-300 w-fit"
             >
     
               <Image
